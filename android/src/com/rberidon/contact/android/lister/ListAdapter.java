@@ -36,39 +36,34 @@ public class ListAdapter extends ArrayAdapter<ListItem> {
 
     public View getView(int position, View convertView, ViewGroup parent) {
         Note.v("called GetView on position " + position);
-        View view = convertView;
-        if (view == null) {
+        if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(listResource, null);
+            convertView = inflater.inflate(listResource, null);
         }
 
         ListItem item = getItem(position);
         if (item != null) {
             // Layout
-            item.setupView(view, position);
-            view.setClickable(item.isClickable());
+            item.setupView(convertView, position);
+            convertView.setClickable(item.isClickable());
             Note.d("Setting clickable: " + item.isClickable() + " for item: " + item.title);
 
-
             // Text
-            TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-            TextView text2 = (TextView) view.findViewById(android.R.id.text2); // probably null
-
-            if (text1 != null) {
-                text1.setText(item.title);
-                text1.setTypeface(type_regular);
-            }
-
-            if (text2 != null) {
-                text2.setText(item.subtitle);
-                text2.setTypeface(type_regular);
-            }
-
-            if (item.isBold()) {
-                text1.setTypeface(type_bold);
-            }
+            setText(convertView.findViewById(android.R.id.text1), item.title, item.isBold() ? type_bold : type_regular);
+            setText(convertView.findViewById(android.R.id.text2), item.subtitle, type_regular);
         }
 
-        return view;
+        return convertView;
+    }
+
+    public void setText(View v, String text, Typeface t) {
+        TextView view = (TextView) v;
+        if (view != null && text != null) {
+            view.setText(text);
+        }
+
+        if (view != null && t != null) {
+            view.setTypeface(t);
+        }
     }
 }
