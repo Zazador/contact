@@ -64,6 +64,7 @@ public class ListManager {
         main.addItem(new LinkItem("Twitter", "@rberidon", "http://www.twitter.com/rberidon"));
         main.addItem(new LinkItem("Facebook", "rberidon", "http://www.facebook.com/rberidon"));
         main.addItem(new LinkItem("LinkedIn", "", "http://www.linkedin.com/profile/view?id=13719225"));
+        main.addItem(new LinkItem("Resume", "", "http://www.rberidon.com/RayneBeridonResume.pdf"));
         
 
         List test = lm.getList("test");
