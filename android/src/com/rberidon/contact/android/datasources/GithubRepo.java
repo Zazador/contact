@@ -6,4 +6,5 @@ public class GithubRepo {
     public String full_name;
     public String description;
     public int id;
+    public String login;
 }
