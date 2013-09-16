@@ -2,11 +2,12 @@ package com.rberidon.contact.android.lister;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.View;
+import android.widget.TextView;
 
 public class ListItem {
     public String title;
     public String subtitle;
-    public Intent intent;
 
     public ListItem(String title) {
         this.title = title;
@@ -17,16 +18,16 @@ public class ListItem {
         this.subtitle = subtitle;
     }
 
-    public void launchIntent(Context context) {
-        if (intent != null) {
-            context.startActivity(intent);
-        }
+    public void setupView(View v, int position) {
+        // To be overridden
+        v.setClickable(false);
     }
 
-    @Override
-    public String toString() {
-        return "ListItem{" +
-                "title='" + title + '\'' +
-                '}';
+    public boolean isBold() {
+        return false;
+    }
+
+    public boolean isClickable() {
+        return false;
     }
 }
