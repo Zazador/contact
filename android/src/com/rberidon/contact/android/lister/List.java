@@ -10,7 +10,7 @@ public class List {
 
     public List(String name) {
         this.name = name;
-        items = new ArrayList<ListItem>();
+        reset();
     }
 
     public boolean isValid() {
@@ -19,7 +19,7 @@ public class List {
 
     public void addItem(ListItem item) {
         if (items == null) {
-            items = new ArrayList<ListItem>();
+            reset();
         }
 
         items.add(item);
@@ -29,6 +29,10 @@ public class List {
         if (items != null) {
             items.remove(item);
         }
+    }
+
+    public void reset() {
+        items = new ArrayList<ListItem>();
     }
 
     public ListAdapter getArrayAdapter(Context context, int resource, String boldFont, String font) {

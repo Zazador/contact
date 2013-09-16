@@ -2,26 +2,24 @@ package com.rberidon.contact.android.lister;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.View;
+import com.rberidon.contact.android.Home;
 import com.rberidon.contact.android.Note;
 
-public class ListLinkItem extends ListItem {
+public class ListSublistItem extends ListItem {
     private Intent i;
-    ListLinkItem self;
+    ListSublistItem self;
+    String sublistName;
 
-    String url = "";
-
-    public ListLinkItem(String title, String subtitle, String url) {
+    public ListSublistItem(String title, String subtitle, Context context, String sublistName) {
         super(title, subtitle);
         this.self = this;
-        this.url = url;
+        this.sublistName = sublistName;
 
-        Note.v("Setting up ListLinkItem: " + title);
-
-        Intent i = new Intent(Intent.ACTION_VIEW);
+        Note.v("Setting up ListSublistItem: " + title + " with sublist " + sublistName);
+        Intent i = new Intent(context, Home.class); // TODO: this won't do anything, but need to find a way to fix
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        i.setData(Uri.parse(url));
+        i.putExtra("ListTitle", sublistName);
         this.i = i;
     }
 
@@ -38,7 +36,7 @@ public class ListLinkItem extends ListItem {
     @Override
     public void setupView(View v, int position) {
         Note.d("Setting up view for " + this.title);
-        v.setOnClickListener(new ListLinkItem.OnClickListener());
+        v.setOnClickListener(new ListSublistItem.OnClickListener());
     }
 
     public void launch(Context context) {
@@ -48,7 +46,7 @@ public class ListLinkItem extends ListItem {
     private class OnClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            Note.i("Launching URL from item: " + self.title + ", URL: " + self.url);
+            Note.i("Going to new list activity from item: " + self.title);
             self.launch(v.getContext());
         }
     }

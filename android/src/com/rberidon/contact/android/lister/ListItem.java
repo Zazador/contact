@@ -1,9 +1,6 @@
 package com.rberidon.contact.android.lister;
 
-import android.content.Context;
-import android.content.Intent;
 import android.view.View;
-import android.widget.TextView;
 
 public class ListItem {
     public String title;
