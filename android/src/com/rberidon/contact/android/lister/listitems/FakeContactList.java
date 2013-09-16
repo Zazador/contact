@@ -19,7 +19,6 @@ public class FakeContactList extends ListItem {
 
     public FakeContactList(Context context, String one) {
         super(one);
-        this.one = one;
         this.self = this;
 
         this.i = new Intent(context, FakeContactView.class);

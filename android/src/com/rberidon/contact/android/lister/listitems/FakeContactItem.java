@@ -11,8 +11,6 @@ import com.rberidon.contact.android.views.GithubView;
 
 public class FakeContactItem extends ListItem {
     FakeContactItem self;
-    public String one;
-    public String two;
 
     @Override
     public void launch(Context context) {
@@ -21,11 +19,7 @@ public class FakeContactItem extends ListItem {
 
     public FakeContactItem(Context context, String one, String two) {
         super(one, two);
-        this.one = one;
-        this.two = two;
         this.self = this;
-
-        //this.i = new Intent(context, GithubView.class);
     }
 }
 

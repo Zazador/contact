@@ -27,6 +27,10 @@ public class ListItem {
         return false;
     }
 
+    public boolean hasSubtitle() {
+        return (subtitle != null && !subtitle.isEmpty());
+    }
+
     public void launch(Context context) {
         if (i != null) {
             context.startActivity(i);

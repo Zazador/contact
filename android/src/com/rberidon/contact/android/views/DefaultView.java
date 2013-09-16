@@ -24,10 +24,10 @@ public class DefaultView extends ListActivity {
 
     public ListAdapter getListAdapter() {
         // To be overridden
-        return getListAdapter(ListManager.MAIN, R.layout.item);
+        return getListAdapter(ListManager.MAIN, R.layout.item, R.layout.item_twoline);
     }
 
-    public ListAdapter getListAdapter(String listName, int resource) {
-        return (ListManager.getInstance().getList(listName)).getArrayAdapter(getApplicationContext(), resource, "Arvo-BoldItalic_201.ttf", "Arvo-Italic_201.ttf");
+    public ListAdapter getListAdapter(String listName, int resource, int resource2) {
+        return new ListAdapter(getApplicationContext(), resource, resource2, (ListManager.getInstance().getList(listName)).items, "Arvo-BoldItalic_201.ttf", "Arvo-Italic_201.ttf");
     }
 }

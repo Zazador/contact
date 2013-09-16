@@ -22,12 +22,19 @@ public class ListAdapter extends ArrayAdapter<ListItem> {
     private Typeface type_bold;
 
     // layout
-    private int listResource;
+    private int listResourceOne;
+    private int listResourceTwo = -1;
+
 
     public ListAdapter(Context context, int resource, ArrayList<ListItem> objects) {
         super(context, resource, objects);
         this.context = context;
-        this.listResource = resource;
+        this.listResourceOne = resource;
+    }
+
+    public ListAdapter(Context context, int resourceOne, int resourceTwo, ArrayList<ListItem> objects, String boldFont, String font) {
+        this(context, resourceOne, objects, boldFont, font);
+        this.listResourceTwo = resourceTwo;
     }
 
     public ListAdapter(Context context, int resource, ArrayList<ListItem> objects, String boldFont, String font) {
@@ -38,13 +45,21 @@ public class ListAdapter extends ArrayAdapter<ListItem> {
 
     public View getView(int position, View convertView, ViewGroup parent) {
         Note.d("called GetView on position " + position);
-        if (convertView == null) {
+        /*if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(listResource, null);
-        }
+
+            convertView = inflater.inflate(listResourceOne, null);
+        }*/
+
 
         ListItem item = getItem(position);
         if (item != null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            if (item.hasSubtitle() && listResourceTwo != -1) {
+                convertView = inflater.inflate(listResourceTwo, null);
+            } else {
+                convertView = inflater.inflate(listResourceOne, null);
+            }
             // Layout
             item.setupView(convertView, position);
 
