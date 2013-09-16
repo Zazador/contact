@@ -27,6 +27,10 @@ public class FakeContactList extends ListItem {
         l.addItem(new TitleItem("Rayne Beridon"));
         l.addItem(new FakeContactItem(context, "Phone", "(936) 647.0277"));
         l.addItem(new FakeContactItem(context, "Email", "rberidon@gmail.com"));
+        l.addItem(new FakeContactItem(context, "Website", "rberidon.com"));
+        l.addItem(new FakeContactItem(context, "Address", "2801 Rio Grande, Apt 206, Austin, TX 78705"));
+
+
 
         ListManager.getInstance().addList("Contact", l);
     }

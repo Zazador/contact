@@ -62,6 +62,8 @@ public class ListManager {
         main.addItem(new FakeContactList(context, "Contact"));
         main.addItem(new GithubListItem("Github", context, "rberidon"));
         main.addItem(new LinkItem("Twitter", "@rberidon", "http://www.twitter.com/rberidon"));
+        main.addItem(new LinkItem("LinkedIn", "", "http://www.linkedin.com/profile/view?id=13719225"));
+        
 
         List test = lm.getList("test");
         test.reset();
