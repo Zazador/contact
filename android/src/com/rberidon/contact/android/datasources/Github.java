@@ -5,7 +5,7 @@ import com.rberidon.contact.android.Note;
 
 import java.util.ArrayList;
 
-public class Github {
+public class Github extends Data {
     public String username;
     public ArrayList<GithubRepo> repos;
 

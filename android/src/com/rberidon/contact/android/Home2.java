@@ -2,7 +2,6 @@ package com.rberidon.contact.android;
 
 import android.app.ListActivity;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.widget.ListView;
 import com.rberidon.contact.android.lister.List;
 import com.rberidon.contact.android.lister.ListAdapter;
@@ -11,7 +10,7 @@ import com.rberidon.contact.android.lister.listitems.LinkItem;
 import com.rberidon.contact.android.lister.listitems.SublistItem;
 import com.rberidon.contact.android.lister.listitems.TitleItem;
 
-public class Home extends ListActivity {
+public class Home2 extends ListActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
