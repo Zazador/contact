@@ -35,7 +35,7 @@ public class ListAdapter extends ArrayAdapter<ListItem> {
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        Note.v("called GetView on position " + position);
+        Note.d("called GetView on position " + position);
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(listResource, null);

@@ -2,13 +2,14 @@ package com.rberidon.contact.android;
 
 import android.app.ListActivity;
 import android.os.Bundle;
-import com.rberidon.contact.android.lister.*;
+import com.rberidon.contact.android.lister.List;
+import com.rberidon.contact.android.lister.ListAdapter;
+import com.rberidon.contact.android.lister.ListManager;
 import com.rberidon.contact.android.lister.listitems.ListLinkItem;
 import com.rberidon.contact.android.lister.listitems.ListSublistItem;
 import com.rberidon.contact.android.lister.listitems.ListTitleItem;
 
 public class Home extends ListActivity {
-    String[] listItems = {"item 1", "item 2 ", "list", "android", "item 3", "foobar", "bar", };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
