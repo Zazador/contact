@@ -45,7 +45,7 @@ public class ListAdapter extends ArrayAdapter<ListItem> {
         if (item != null) {
             // Layout
             item.setupView(convertView, position);
-            convertView.setClickable(item.isClickable());
+            //convertView.setClickable(item.isClickable());
             Note.d("Setting clickable: " + item.isClickable() + " for item: " + item.title);
 
             // Text
