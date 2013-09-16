@@ -2,6 +2,7 @@ package com.rberidon.contact.android.lister;
 
 import android.content.Context;
 import com.rberidon.contact.android.Note;
+import com.rberidon.contact.android.lister.listitems.FakeContactList;
 import com.rberidon.contact.android.lister.listitems.GithubListItem;
 import com.rberidon.contact.android.lister.listitems.LinkItem;
 import com.rberidon.contact.android.lister.listitems.TitleItem;
@@ -58,6 +59,7 @@ public class ListManager {
         List main = lm.getList(ListManager.MAIN);
         main.reset();
         main.addItem(new TitleItem("Rayne Beridon"));
+        main.addItem(new FakeContactList(context, "Contact"));
         main.addItem(new GithubListItem("Github", context, "rberidon"));
         main.addItem(new LinkItem("Twitter", "@rberidon", "http://www.twitter.com/rberidon"));
 
