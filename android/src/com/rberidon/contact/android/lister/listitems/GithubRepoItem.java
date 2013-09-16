@@ -23,6 +23,5 @@ public class GithubRepoItem extends ListItem {
         this.self = this;
         this.repo = repo;
     }
-
 }
 
