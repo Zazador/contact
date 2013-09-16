@@ -1,10 +1,11 @@
-package com.rberidon.contact.android.lister;
+package com.rberidon.contact.android.lister.listitems;
 
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import com.rberidon.contact.android.Home;
 import com.rberidon.contact.android.Note;
+import com.rberidon.contact.android.lister.ListItem;
 
 public class ListSublistItem extends ListItem {
     private Intent i;
