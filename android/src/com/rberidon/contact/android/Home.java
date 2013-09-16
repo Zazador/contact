@@ -14,15 +14,6 @@ import com.rberidon.contact.android.lister.listitems.ListTitleItem;
 public class Home extends ListActivity {
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_MENU) {
-            Note.i("Height: " + getListView().getChildAt(0).getHeight());
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
