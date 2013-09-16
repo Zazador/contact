@@ -7,9 +7,9 @@ import android.widget.ListView;
 import com.rberidon.contact.android.lister.List;
 import com.rberidon.contact.android.lister.ListAdapter;
 import com.rberidon.contact.android.lister.ListManager;
-import com.rberidon.contact.android.lister.listitems.ListLinkItem;
-import com.rberidon.contact.android.lister.listitems.ListSublistItem;
-import com.rberidon.contact.android.lister.listitems.ListTitleItem;
+import com.rberidon.contact.android.lister.listitems.LinkItem;
+import com.rberidon.contact.android.lister.listitems.SublistItem;
+import com.rberidon.contact.android.lister.listitems.TitleItem;
 
 public class Home extends ListActivity {
 
@@ -43,16 +43,16 @@ public class Home extends ListActivity {
 
         List main = lm.getList(ListManager.MAIN);
         main.reset();
-        main.addItem(new ListTitleItem("Rayne Beridon"));
-        main.addItem(new ListLinkItem("Github", "@rberidon", "http://www.github.com/rberidon"));
-        main.addItem(new ListLinkItem("Twitter", "@rberidon", "http://www.twitter.com/rberidon"));
+        main.addItem(new TitleItem("Rayne Beridon"));
+        main.addItem(new LinkItem("Github", "@rberidon", "http://www.github.com/rberidon"));
+        main.addItem(new LinkItem("Twitter", "@rberidon", "http://www.twitter.com/rberidon"));
 
         List test = lm.getList("test");
         test.reset();
-        test.addItem(new ListTitleItem("Test list"));
-        test.addItem(new ListTitleItem("Test list 2"));
-        test.addItem(new ListTitleItem("Test list 3"));
+        test.addItem(new TitleItem("Test list"));
+        test.addItem(new TitleItem("Test list 2"));
+        test.addItem(new TitleItem("Test list 3"));
 
-        main.addItem(new ListSublistItem("goto test", "goto test2", getApplicationContext(), "test"));
+        main.addItem(new SublistItem("goto test", "goto test2", getApplicationContext(), "test"));
     }
 }
