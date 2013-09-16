@@ -13,8 +13,7 @@ public class GithubListItem extends ListItem {
     GithubListItem self;
     public String username;
     public Github gh;
-//    public ArrayList<GithubRepoItem> items;
-
+    
     @Override
     public void launch(Context context) {
         super.launch(context);
@@ -26,8 +25,10 @@ public class GithubListItem extends ListItem {
         this.username = username;
         this.gh = new Github(username);
         this.i = new Intent(context, GithubView.class);
-//        this.items = new ArrayList<GithubRepoItem>();
+
         List l = new List("Github");
+
+        l.addItem(new LinkItem("Github", "@rberidon", "http://www.github.com/rberidon"));
         for (GithubRepo r : gh.repos) {
             l.addItem(new GithubRepoItem(context, r));
         }
