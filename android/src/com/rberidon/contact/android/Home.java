@@ -41,11 +41,8 @@ public class Home extends ListActivity {
         }
 
         ListAdapter la = adapterList.getArrayAdapter(getApplicationContext(), R.layout.item, "Arvo-BoldItalic_201.ttf", "Arvo-Italic_201.ttf");
-
         setListAdapter(la);
-
-        ListView lv = (ListView) findViewById(R.id.list);
-
+        la.setItemOnClickListener((ListView) findViewById(android.R.id.list));
 
         Note.i("Started!");
     }

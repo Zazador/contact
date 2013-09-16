@@ -11,9 +11,4 @@ public class ListTitleItem extends ListItem {
     public boolean isBold() {
         return true;
     }
-
-    @Override
-    public boolean isClickable() {
-        return false;
-    }
 }

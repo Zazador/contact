@@ -5,7 +5,9 @@ import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import com.rberidon.contact.android.Note;
 
@@ -45,8 +47,6 @@ public class ListAdapter extends ArrayAdapter<ListItem> {
         if (item != null) {
             // Layout
             item.setupView(convertView, position);
-            //convertView.setClickable(item.isClickable());
-            Note.d("Setting clickable: " + item.isClickable() + " for item: " + item.title);
 
             // Text
             setText(convertView.findViewById(android.R.id.text1), item.title, item.isBold() ? type_bold : type_regular);
@@ -65,5 +65,15 @@ public class ListAdapter extends ArrayAdapter<ListItem> {
         if (view != null && t != null) {
             view.setTypeface(t);
         }
+    }
+
+    public void setItemOnClickListener(ListView v) {
+        v.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ListItem item = getItem(position);
+                item.launch(parent.getContext());
+            }
+        });
     }
 }

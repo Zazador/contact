@@ -1,10 +1,13 @@
 package com.rberidon.contact.android.lister;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 
 public class ListItem {
     public String title;
     public String subtitle;
+    public Intent i;
 
     public ListItem(String title) {
         this.title = title;
@@ -24,7 +27,10 @@ public class ListItem {
         return false;
     }
 
-    public boolean isClickable() {
-        return false;
+    public void launch(Context context) {
+        if (i != null) {
+            context.startActivity(i);
+        }
     }
+
 }
