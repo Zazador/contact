@@ -1,7 +1,6 @@
 package com.rberidon.contact.android.lister;
 
 import android.content.Context;
-import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 
@@ -32,8 +31,7 @@ public class List {
         }
     }
 
-    public ArrayAdapter getArrayAdapter(Context context, int resource) {
-        return new ListAdapter(context, resource, items);
+    public ListAdapter getArrayAdapter(Context context, int resource, String boldFont, String font) {
+        return new ListAdapter(context, resource, items, boldFont, font);
     }
-
 }
