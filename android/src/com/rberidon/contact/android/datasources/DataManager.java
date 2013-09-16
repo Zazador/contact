@@ -1,10 +1,13 @@
 package com.rberidon.contact.android.datasources;
 
+import android.util.DisplayMetrics;
+
 import java.util.HashMap;
 
 public class DataManager {
     public static DataManager instance = null;
     public HashMap<String, Data> map;
+    public DisplayMetrics metrics;
 
     public DataManager() {
         map = new HashMap<String, Data>();
