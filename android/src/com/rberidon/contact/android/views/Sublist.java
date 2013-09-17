@@ -6,6 +6,7 @@ import com.rberidon.contact.android.ListAdapter;
 import com.rberidon.contact.android.ListManager;
 import com.rberidon.contact.android.Note;
 import com.rberidon.contact.android.R;
+import com.rberidon.contact.android.datasources.Constants;
 import com.rberidon.contact.android.list.List;
 
 public class Sublist extends ListActivity {
@@ -26,7 +27,7 @@ public class Sublist extends ListActivity {
             return;
         }
 
-        ListAdapter la = adapterList.getArrayAdapter(getApplicationContext(), R.layout.item, "Arvo-BoldItalic_201.ttf", "Arvo-Italic_201.ttf");
+        ListAdapter la = adapterList.getArrayAdapter(getApplicationContext(), R.layout.item, Constants.type_regular, Constants.type_bold);
         setListAdapter(la);
 
         Note.i("Started!");
