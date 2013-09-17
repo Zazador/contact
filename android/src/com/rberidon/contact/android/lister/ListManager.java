@@ -31,32 +31,19 @@ public class ListManager {
         return (lists != null && !lists.isEmpty());
     }
 
-    public void addList(String key, List value) {
-        lists.put(key, value);
+    public void addList(List value) {
+        lists.put(value.name, value);
     }
 
     public List getList(String key) {
-        // will create lists if missing
-
-        if (key == null) {
-            return null;
-        }
-
-        if (lists.containsKey(key)) {
-            return lists.get(key);
-        } else {
-            List temp = new List(key);
-            lists.put(key, temp);
-            return temp;
-        }
+        return lists.get(key);
     }
 
     public void makeLists(Context context) {
         ListManager lm = ListManager.getInstance();
         Note.d("Making lists.");
 
-        List main = lm.getList(ListManager.MAIN);
-        main.reset();
+        List main = new List(ListManager.MAIN);
         main.addItem(new TitleItem("Rayne Beridon"));
         main.addItem(new FakeContactList(context, "Contact"));
         main.addItem(new GithubList("Github", context, "rberidon"));
@@ -64,12 +51,13 @@ public class ListManager {
         main.addItem(new LinkItem("Facebook", "rberidon", "http://www.facebook.com/rberidon"));
         main.addItem(new LinkItem("LinkedIn", "", "http://www.linkedin.com/profile/view?id=13719225"));
         main.addItem(new LinkItem("Resume", "", "http://www.rberidon.com/RayneBeridonResume.pdf"));
+        lm.addList(main);
 
         List test = new List("test");
-        test.reset();
         test.addItem(new TitleItem("Test list"));
         test.addItem(new TitleItem("Test list 2"));
         test.addItem(new TitleItem("Test list 3"));
+        lm.addList(test);
 
         List l = new List("Contact");
         l.addItem(new TitleItem("Rayne Beridon"));
@@ -77,9 +65,6 @@ public class ListManager {
         l.addItem(new EmailItem(context, "Email", "rberidon@gmail.com"));
         l.addItem(new LinkItem("Website", "rberidon.com", "http://www.rberidon.com"));
         l.addItem(new LatLongItem(context, "Address", "2801 Rio Grande, Apt 206, Austin, TX 78705", "30.29356","-97.74372"));
-
-        ListManager.getInstance().addList("Contact", l);
-
-        //main.addItem(new SubList("goto test", "goto test2", context, "test"));
+        lm.addList(l);
     }
 }
