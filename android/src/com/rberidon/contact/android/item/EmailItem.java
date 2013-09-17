@@ -32,10 +32,10 @@ public class EmailItem extends ListItem {
         intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
         intent.putExtra(Intent.EXTRA_TEXT, emailBody);
 
-        /*if (attachment != null) {
+        if (attachment != null) {
             intent.putExtra(Intent.EXTRA_STREAM, attachment);
         }
-*/
+
         context.startActivity(intent);
     }
 }
