@@ -1,10 +1,12 @@
-package com.rberidon.contact.android;
+package com.rberidon.contact.android.views;
 
 import android.app.ListActivity;
 import android.os.Bundle;
-import com.rberidon.contact.android.lister.List;
-import com.rberidon.contact.android.lister.ListAdapter;
-import com.rberidon.contact.android.lister.ListManager;
+import com.rberidon.contact.android.ListAdapter;
+import com.rberidon.contact.android.ListManager;
+import com.rberidon.contact.android.Note;
+import com.rberidon.contact.android.R;
+import com.rberidon.contact.android.list.List;
 
 public class Sublist extends ListActivity {
 

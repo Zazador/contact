@@ -1,16 +1,15 @@
-package com.rberidon.contact.android.lister.item;
+package com.rberidon.contact.android.item;
 
 import android.content.Intent;
 import android.net.Uri;
 import com.rberidon.contact.android.Note;
-import com.rberidon.contact.android.lister.ListItem;
 
-public class LinkItem extends ListItem {
-    LinkItem self;
+public class ActivityItem extends ListItem {
+    ActivityItem self;
 
     String url = "";
 
-    public LinkItem(String title, String subtitle, String url) {
+    public ActivityItem(String title, String subtitle, String url) {
         super(title, subtitle);
         this.self = this;
         this.url = url;

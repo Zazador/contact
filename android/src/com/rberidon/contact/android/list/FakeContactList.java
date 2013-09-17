@@ -1,11 +1,8 @@
-package com.rberidon.contact.android.lister.list;
+package com.rberidon.contact.android.list;
 
 import android.content.Context;
 import android.content.Intent;
-import com.rberidon.contact.android.lister.List;
-import com.rberidon.contact.android.lister.ListItem;
-import com.rberidon.contact.android.lister.ListManager;
-import com.rberidon.contact.android.lister.item.*;
+import com.rberidon.contact.android.item.ListItem;
 import com.rberidon.contact.android.views.FakeContactView;
 
 public class FakeContactList extends ListItem {

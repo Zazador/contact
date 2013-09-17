@@ -1,4 +1,4 @@
-package com.rberidon.contact.android.lister;
+package com.rberidon.contact.android.item;
 
 import android.content.Context;
 import android.content.Intent;

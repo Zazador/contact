@@ -1,7 +1,6 @@
-package com.rberidon.contact.android.lister.item;
+package com.rberidon.contact.android.item;
 
 import android.content.Context;
-import com.rberidon.contact.android.lister.ListItem;
 
 public class FakeContactItem extends ListItem {
     FakeContactItem self;

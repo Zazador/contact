@@ -1,6 +1,8 @@
-package com.rberidon.contact.android.lister;
+package com.rberidon.contact.android.list;
 
 import android.content.Context;
+import com.rberidon.contact.android.ListAdapter;
+import com.rberidon.contact.android.item.ListItem;
 
 import java.util.ArrayList;
 

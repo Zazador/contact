@@ -1,4 +1,4 @@
-package com.rberidon.contact.android.lister;
+package com.rberidon.contact.android;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -8,13 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.rberidon.contact.android.Note;
-import com.rberidon.contact.android.datasources.DataManager;
+import com.rberidon.contact.android.item.ListItem;
 
 import java.util.ArrayList;
 
@@ -56,12 +54,6 @@ public class ListAdapter extends ArrayAdapter<ListItem> {
 
     public View getView(int position, View convertView, ViewGroup parent) {
         Note.d("called GetView on position " + position);
-        /*if (convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-            convertView = inflater.inflate(listResourceOne, null);
-        }*/
-
 
         ListItem item = getItem(position);
         if (item != null) {

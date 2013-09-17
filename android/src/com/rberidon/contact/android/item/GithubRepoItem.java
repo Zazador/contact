@@ -1,10 +1,9 @@
-package com.rberidon.contact.android.lister.item;
+package com.rberidon.contact.android.item;
 
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import com.rberidon.contact.android.datasources.GithubRepo;
-import com.rberidon.contact.android.lister.ListItem;
 
 public class GithubRepoItem extends ListItem {
     GithubRepoItem self;

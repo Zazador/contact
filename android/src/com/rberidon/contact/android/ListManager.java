@@ -1,10 +1,10 @@
-package com.rberidon.contact.android.lister;
+package com.rberidon.contact.android;
 
 import android.content.Context;
-import com.rberidon.contact.android.Note;
-import com.rberidon.contact.android.lister.item.*;
-import com.rberidon.contact.android.lister.list.FakeContactList;
-import com.rberidon.contact.android.lister.list.GithubList;
+import com.rberidon.contact.android.item.*;
+import com.rberidon.contact.android.list.FakeContactList;
+import com.rberidon.contact.android.list.GithubList;
+import com.rberidon.contact.android.list.List;
 
 import java.util.HashMap;
 

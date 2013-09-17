@@ -6,8 +6,8 @@ import android.util.DisplayMetrics;
 import android.widget.ListView;
 import com.rberidon.contact.android.R;
 import com.rberidon.contact.android.datasources.DataManager;
-import com.rberidon.contact.android.lister.ListAdapter;
-import com.rberidon.contact.android.lister.ListManager;
+import com.rberidon.contact.android.ListAdapter;
+import com.rberidon.contact.android.ListManager;
 
 public class DefaultView extends ListActivity {
     private DisplayMetrics metrics;

@@ -1,6 +1,4 @@
-package com.rberidon.contact.android.lister.item;
-
-import com.rberidon.contact.android.lister.ListItem;
+package com.rberidon.contact.android.item;
 
 public class TitleItem extends ListItem {
     public TitleItem(String title) {
