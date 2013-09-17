@@ -1,13 +1,7 @@
-package com.rberidon.contact.android.lister.listitems;
+package com.rberidon.contact.android.lister.item;
 
 import android.content.Context;
-import android.content.Intent;
-import com.rberidon.contact.android.datasources.Github;
-import com.rberidon.contact.android.datasources.GithubRepo;
-import com.rberidon.contact.android.lister.List;
 import com.rberidon.contact.android.lister.ListItem;
-import com.rberidon.contact.android.lister.ListManager;
-import com.rberidon.contact.android.views.GithubView;
 
 public class FakeContactItem extends ListItem {
     FakeContactItem self;

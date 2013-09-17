@@ -1,4 +1,4 @@
-package com.rberidon.contact.android.lister.listitems;
+package com.rberidon.contact.android.lister.item;
 
 import com.rberidon.contact.android.lister.ListItem;
 

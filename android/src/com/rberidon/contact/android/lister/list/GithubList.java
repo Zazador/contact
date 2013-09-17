@@ -1,4 +1,4 @@
-package com.rberidon.contact.android.lister.listitems;
+package com.rberidon.contact.android.lister.list;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,10 +7,12 @@ import com.rberidon.contact.android.datasources.GithubRepo;
 import com.rberidon.contact.android.lister.List;
 import com.rberidon.contact.android.lister.ListItem;
 import com.rberidon.contact.android.lister.ListManager;
+import com.rberidon.contact.android.lister.item.GithubRepoItem;
+import com.rberidon.contact.android.lister.item.LinkItem;
 import com.rberidon.contact.android.views.GithubView;
 
-public class GithubListItem extends ListItem {
-    GithubListItem self;
+public class GithubList extends ListItem {
+    GithubList self;
     public String username;
     public Github gh;
     
@@ -19,7 +21,7 @@ public class GithubListItem extends ListItem {
         super.launch(context);
     }
 
-    public GithubListItem(String title, Context context, String username) {
+    public GithubList(String title, Context context, String username) {
         super(title);
         this.self = this;
         this.username = username;

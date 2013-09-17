@@ -6,9 +6,9 @@ import android.widget.ListView;
 import com.rberidon.contact.android.lister.List;
 import com.rberidon.contact.android.lister.ListAdapter;
 import com.rberidon.contact.android.lister.ListManager;
-import com.rberidon.contact.android.lister.listitems.LinkItem;
-import com.rberidon.contact.android.lister.listitems.SublistItem;
-import com.rberidon.contact.android.lister.listitems.TitleItem;
+import com.rberidon.contact.android.lister.item.LinkItem;
+import com.rberidon.contact.android.lister.list.SubList;
+import com.rberidon.contact.android.lister.item.TitleItem;
 
 public class Home2 extends ListActivity {
 
@@ -52,6 +52,6 @@ public class Home2 extends ListActivity {
         test.addItem(new TitleItem("Test list 2"));
         test.addItem(new TitleItem("Test list 3"));
 
-        main.addItem(new SublistItem("goto test", "goto test2", getApplicationContext(), "test"));
+        main.addItem(new SubList("goto test", "goto test2", getApplicationContext(), "test"));
     }
 }
