@@ -1,8 +1,11 @@
 package com.rberidon.contact.android.item;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
+import com.rberidon.contact.android.Note;
 
 public class ListItem {
     public String title;
@@ -32,8 +35,12 @@ public class ListItem {
     }
 
     public void launch(Context context) {
-        if (i != null) {
-            context.startActivity(i);
+        try {
+            if (i != null) {
+                context.startActivity(i);
+            }
+        } catch (ActivityNotFoundException e) {
+            Note.e("Activity not found for intent: " + i.toString());
         }
     }
 

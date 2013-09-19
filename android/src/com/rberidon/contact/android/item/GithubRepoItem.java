@@ -10,11 +10,6 @@ public class GithubRepoItem extends ListItem {
     Context context;
     public GithubRepo repo;
 
-    @Override
-    public void launch(Context context) {
-        super.launch(context);
-    }
-
     public GithubRepoItem(Context context, GithubRepo repo) {
         super(repo.name, repo.description);
         this.self = this;

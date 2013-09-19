@@ -14,8 +14,6 @@ public class LinkItem extends ListItem {
         this.self = this;
         this.url = url;
 
-        Note.v("Setting up LinkItem: " + title);
-
         i = new Intent(Intent.ACTION_VIEW);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         i.setData(Uri.parse(url));
