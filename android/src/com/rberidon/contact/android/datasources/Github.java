@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.TextView;
 import com.google.gson.Gson;
+import com.rberidon.contact.android.ListManager;
 import com.rberidon.contact.android.Note;
 import com.rberidon.contact.android.item.GithubRepoItem;
 import com.rberidon.contact.android.item.LinkItem;
@@ -75,16 +76,16 @@ public class Github extends Data {
             String url = userGh.getApiReposUrl();
             Note.d("Github user url: " + url);
             DefaultHttpClient httpclient = new DefaultHttpClient();
-            HttpPost httppost = new HttpPost(url);
-            Note.d("http: " + httppost.getURI());
-            Note.d("http: " + httppost.getParams().toString());
-            Note.d("http: " + httppost.getAllHeaders().toString());
-            httppost.setHeader("Content-type", "application/json");
+            HttpGet httpget = new HttpGet(url);
+            Note.d("http: " + httpget.getURI());
+            Note.d("http: " + httpget.getParams().toString());
+            Note.d("http: " + httpget.getAllHeaders().toString());
+            httpget.setHeader("Content-type", "application/json");
 
             InputStream inputStream = null;
             String result = null;
             try {
-                HttpResponse response = httpclient.execute(httppost);
+                HttpResponse response = httpclient.execute(httpget);
                 HttpEntity entity = response.getEntity();
 
                 inputStream = entity.getContent();
@@ -124,6 +125,8 @@ public class Github extends Data {
 
         protected void onPostExecute(ArrayList<GithubRepo> repos) {
             self.repos = repos;
+            // this is where info should be created for listitems and put into list "Github"
+            // doesn't matter tho, switching to retrofit
         }
     }
 
