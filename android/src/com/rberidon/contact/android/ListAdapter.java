@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.rberidon.contact.android.item.ListItem;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class ListAdapter extends ArrayAdapter<ListItem> {
     // android
@@ -29,7 +30,8 @@ public class ListAdapter extends ArrayAdapter<ListItem> {
     private int listResourceTwo = -1;
     int animOffset = 0;
     int anim = 250;
-    int animDelta = 80;
+    int animDelta = 150;
+    HashSet<Integer> positions;
     Handler h;
 
 
@@ -39,6 +41,7 @@ public class ListAdapter extends ArrayAdapter<ListItem> {
         this.listResourceOne = resource;
 
         h = new Handler();
+        positions = new HashSet<Integer>();
     }
 
     public ListAdapter(Context context, int resourceOne, int resourceTwo, ArrayList<ListItem> objects, String boldFont, String font) {
@@ -70,28 +73,19 @@ public class ListAdapter extends ArrayAdapter<ListItem> {
             setText(convertView.findViewById(android.R.id.text1), item.title, item.isBold() ? type_bold : type_regular);
             setText(convertView.findViewById(android.R.id.text2), item.subtitle, type_regular);
 
-//            Animation animation = new TranslateAnimation(DataManager.getInstance().metrics.widthPixels/5, 0, 0, 0);
-            Animation animation = new AlphaAnimation((float)0.0, (float)1.0);
-            animation.setDuration(anim + animOffset);
-//            animation.setStartOffset(animOffset);
+            // Animation animation = new TranslateAnimation(DataManager.getInstance().metrics.widthPixels/5, 0, 0, 0);
+            Integer temp = new Integer(position);
+            if (!positions.contains(temp)) {
+                Animation animation = new AlphaAnimation((float)0.0, (float)1.0);
+                animation.setDuration(anim + animOffset * position);
+                positions.add(temp);
 
-            convertView.startAnimation(animation);
-
-            h.removeCallbacks(r, null);
-            h.postDelayed(r, animDelta);
-            animOffset += animDelta;
+                convertView.startAnimation(animation);
+            }
         }
 
         return convertView;
     }
-
-    public Runnable r = new Runnable() {
-
-        @Override
-        public void run() {
-            animOffset = 0;
-        }
-    };
 
     public void setText(View v, String text, Typeface t) {
         TextView view = (TextView) v;
