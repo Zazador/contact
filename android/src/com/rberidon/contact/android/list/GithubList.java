@@ -14,11 +14,6 @@ public class GithubList extends ListItem {
     GithubList self;
     public String username;
     public Github gh;
-    
-    @Override
-    public void launch(Context context) {
-        super.launch(context);
-    }
 
     public GithubList(String title, Context context, String username) {
         super(title);

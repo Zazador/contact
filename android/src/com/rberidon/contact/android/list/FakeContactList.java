@@ -9,11 +9,6 @@ public class FakeContactList extends ListItem {
     FakeContactList self;
     public String one;
 
-    @Override
-    public void launch(Context context) {
-        super.launch(context);
-    }
-
     public FakeContactList(Context context, String one) {
         super(one);
         this.self = this;
@@ -21,4 +16,3 @@ public class FakeContactList extends ListItem {
         this.i = new Intent(context, FakeContactView.class);
     }
 }
-

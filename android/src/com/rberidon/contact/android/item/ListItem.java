@@ -34,7 +34,7 @@ public class ListItem {
         return (subtitle != null && !subtitle.isEmpty());
     }
 
-    public void launch(Context context) {
+    public final void launch(Context context) {
         try {
             if (i != null) {
                 context.startActivity(i);
