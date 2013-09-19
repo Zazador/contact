@@ -21,11 +21,6 @@ public class ListItem {
         this.subtitle = subtitle;
     }
 
-    public void setupView(View v, int position) {
-        // To be overridden
-        v.setClickable(false);
-    }
-
     public boolean isBold() {
         return false;
     }

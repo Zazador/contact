@@ -63,8 +63,6 @@ public class ListAdapter extends ArrayAdapter<ListItem> {
             } else {
                 convertView = inflater.inflate(listResourceOne, null);
             }
-            // Layout
-            item.setupView(convertView, position);
 
             // Text
             setText(convertView.findViewById(android.R.id.text1), item.title, item.isBold() ? type_bold : type_regular);
