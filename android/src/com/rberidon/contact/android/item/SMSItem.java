@@ -11,7 +11,7 @@ public class SMSItem extends ListItem {
         super(one, two, context);
 
         i = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("sms", "", null));
-        i.putExtra("sms_body", "Rayne Beridon\nrberidon@gmail.com"  );
+        i.putExtra("sms_body", "Rayne Beridon\nrberidon@gmail.com");
     }
 }
 

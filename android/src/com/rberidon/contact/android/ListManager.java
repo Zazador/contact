@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class ListManager {
     // Variables
     public static ListManager instance = null;
-    public HashMap<String, ArrayList<ListItem> > lists;
+    public HashMap<String, ArrayList<ListItem>> lists;
 
     // Constants
     public static final String MAIN = "main";
@@ -18,7 +18,7 @@ public class ListManager {
     public static final String GITHUB = "Github";
 
     public ListManager() {
-        lists = new HashMap<String, ArrayList<ListItem> >();
+        lists = new HashMap<String, ArrayList<ListItem>>();
     }
 
     public static ListManager getInstance() {

@@ -55,7 +55,7 @@ public class Github extends Data {
         protected ArrayList<GithubRepo> doInBackground(Github... ghInput) {
             Github userGh = ghInput[0];
 
-            ArrayList <GithubRepo> output = new ArrayList<GithubRepo>();
+            ArrayList<GithubRepo> output = new ArrayList<GithubRepo>();
 
             String url = userGh.getApiReposUrl();
             Note.d("Github user url: " + url);
@@ -78,8 +78,7 @@ public class Github extends Data {
                 StringBuilder sb = new StringBuilder();
 
                 String line = null;
-                while ((line = reader.readLine()) != null)
-                {
+                while ((line = reader.readLine()) != null) {
                     Note.v("Line: " + line);
                     sb.append(line + "\n");
                 }
@@ -89,9 +88,11 @@ public class Github extends Data {
                 // Oops
                 Note.e("Exception reading Github: ");
                 e.printStackTrace();
-            }
-            finally {
-                try{if(inputStream != null)inputStream.close();}catch(Exception squish){}
+            } finally {
+                try {
+                    if (inputStream != null) inputStream.close();
+                } catch (Exception squish) {
+                }
             }
 
             try {

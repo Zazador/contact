@@ -43,7 +43,7 @@ public class ListAdapter extends ArrayAdapter<ListItem> {
             // Animation animation = new TranslateAnimation(DataManager.getInstance().metrics.widthPixels/5, 0, 0, 0);
             Integer temp = new Integer(position);
             if (!positions.contains(temp)) {
-                Animation animation = new AlphaAnimation((float)0.0, (float)1.0);
+                Animation animation = new AlphaAnimation((float) 0.0, (float) 1.0);
                 animation.setDuration(anim + animOffset * position);
                 positions.add(temp);
 

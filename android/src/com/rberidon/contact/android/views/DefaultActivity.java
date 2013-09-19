@@ -1,6 +1,5 @@
 package com.rberidon.contact.android.views;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;

@@ -16,7 +16,7 @@ public class LatLongItem extends ListItem {
         this.lat = lat;
         this.lng = lng;
 
-        i = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:"+lat+","+lng+"?q="+lat+","+lng+"("+two+")"));
+        i = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:" + lat + "," + lng + "?q=" + lat + "," + lng + "(" + two + ")"));
     }
 }
 
