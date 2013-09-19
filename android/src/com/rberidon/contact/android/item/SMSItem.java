@@ -8,8 +8,7 @@ public class SMSItem extends ListItem {
     Context context;
 
     public SMSItem(Context context, String one, String two) {
-        super(one, two);
-        this.context = context;
+        super(one, two, context);
 
         i = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("sms", "", null));
         i.putExtra("sms_body", "Rayne Beridon\nrberidon@gmail.com"  );

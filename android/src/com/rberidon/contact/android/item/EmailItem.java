@@ -8,8 +8,7 @@ public class EmailItem extends ListItem {
     Context context;
 
     public EmailItem(Context context, String one, String two) {
-        super(one, two);
-        this.context = context;
+        super(one, two, context);
         this.self = this;
 
         i = new Intent(Intent.ACTION_SEND);

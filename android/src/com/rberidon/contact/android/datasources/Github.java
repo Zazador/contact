@@ -1,33 +1,20 @@
 package com.rberidon.contact.android.datasources;
 
-import android.R;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
-import android.widget.TextView;
 import com.google.gson.Gson;
-import com.rberidon.contact.android.ListManager;
 import com.rberidon.contact.android.Note;
 import com.rberidon.contact.android.item.GithubRepoItem;
 import com.rberidon.contact.android.item.LinkItem;
-import com.rberidon.contact.android.list.List;
+import com.rberidon.contact.android.item.ListItem;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.StatusLine;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URL;
 import java.util.ArrayList;
 
 public class Github extends Data {
@@ -55,16 +42,13 @@ public class Github extends Data {
         return String.format(API_REPOS_URL, username);
     }
 
-    public List getList(Context context) {
-        List l = new List("Github");
-        if (repos != null) {
-            l.addItem(new LinkItem("Github", "@rberidon", "http://www.github.com/rberidon"));
-            for (GithubRepo repo : repos) {
-                l.addItem(new GithubRepoItem(context, repo));
-            }
+    public ArrayList<ListItem> getList(Context context) {
+        ArrayList<ListItem> gh = new ArrayList<ListItem>();
+        gh.add(new LinkItem(context, "Github", "@rberidon", "http://www.github.com/rberidon"));
+        for (GithubRepo repo : repos) {
+            gh.add(new GithubRepoItem(context, repo));
         }
-
-        return l;
+        return gh;
     }
 
     private class GetGithubReposTask extends AsyncTask<Github, Void, ArrayList<GithubRepo>> {

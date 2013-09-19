@@ -1,18 +1,28 @@
 package com.rberidon.contact.android.views;
 
+import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.widget.ListView;
 import com.rberidon.contact.android.ListAdapter;
 import com.rberidon.contact.android.ListManager;
+import com.rberidon.contact.android.Note;
 import com.rberidon.contact.android.R;
 import com.rberidon.contact.android.datasources.Constants;
 import com.rberidon.contact.android.datasources.DataManager;
 
-public class DefaultView extends ListActivity {
+public class DefaultActivity extends ListActivity {
     private DisplayMetrics metrics;
+
+    public static Intent getIntent(Context context, String list) {
+        Intent i = new Intent(context, DefaultActivity.class);
+        i.putExtra("list", list);
+        return i;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,10 +38,6 @@ public class DefaultView extends ListActivity {
             ListManager.getInstance().makeLists(getApplicationContext());
         }
 
-        ListAdapter la = getListAdapter();
-        la.setItemOnClickListener((ListView) findViewById(android.R.id.list));
-        setListAdapter(la);
-
         if (Constants.type_bold == null) {
             Constants.type_bold = Typeface.createFromAsset(getApplicationContext().getAssets(), Constants.font_bold);
         }
@@ -39,14 +45,19 @@ public class DefaultView extends ListActivity {
         if (Constants.type_reg == null) {
             Constants.type_reg = Typeface.createFromAsset(getApplicationContext().getAssets(), Constants.font_reg);
         }
-    }
 
-    public ListAdapter getListAdapter() {
-        // To be overridden
-        return getListAdapter(ListManager.MAIN, R.layout.item, R.layout.item_twoline);
-    }
+        String list = getIntent().getStringExtra("list");
+        Note.d("Checking list... " + (list == null ? "null! " : list));
+        if (list == null) {
+            Note.d("... no list, assuming MAIN");
+            list = ListManager.MAIN;
+        } else if (ListManager.getInstance().getList(list) == null) {
+            Note.d("Null list from LM");
+            list = ListManager.MAIN;
+        }
 
-    public ListAdapter getListAdapter(String listName, int resource, int resource2) {
-        return new ListAdapter(getApplicationContext(), (ListManager.getInstance().getList(listName)).items);
+        ListAdapter la = new ListAdapter(getApplicationContext(), (ListManager.getInstance().getList(list)));
+        la.setItemOnClickListener((ListView) findViewById(android.R.id.list));
+        setListAdapter(la);
     }
 }

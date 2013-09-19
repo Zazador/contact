@@ -6,12 +6,11 @@ import android.net.Uri;
 
 public class LatLongItem extends ListItem {
     LatLongItem self;
-    Context context;
     String lat;
     String lng;
 
     public LatLongItem(Context context, String one, String two, String lat, String lng) {
-        super(one, two);
+        super(one, two, context);
         this.context = context;
         this.self = this;
         this.lat = lat;

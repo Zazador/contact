@@ -2,22 +2,23 @@ package com.rberidon.contact.android;
 
 import android.content.Context;
 import com.rberidon.contact.android.item.*;
-import com.rberidon.contact.android.list.FakeContactList;
-import com.rberidon.contact.android.list.GithubList;
-import com.rberidon.contact.android.list.List;
+import com.rberidon.contact.android.list.ContactList;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ListManager {
     // Variables
     public static ListManager instance = null;
-    public HashMap<String, List> lists;
+    public HashMap<String, ArrayList<ListItem> > lists;
 
     // Constants
     public static final String MAIN = "main";
+    public static final String CONTACT = "contact";
+    public static final String GITHUB = "Github";
 
     public ListManager() {
-        lists = new HashMap<String, List>();
+        lists = new HashMap<String, ArrayList<ListItem> >();
     }
 
     public static ListManager getInstance() {
@@ -31,11 +32,11 @@ public class ListManager {
         return (lists != null && !lists.isEmpty());
     }
 
-    public void addList(List value) {
-        lists.put(value.name, value);
+    public void addList(String key, ArrayList<ListItem> value) {
+        lists.put(key, value);
     }
 
-    public List getList(String key) {
+    public ArrayList<ListItem> getList(String key) {
         return lists.get(key);
     }
 
@@ -43,29 +44,23 @@ public class ListManager {
         ListManager lm = ListManager.getInstance();
         Note.d("Making lists.");
 
-        List main = new List(ListManager.MAIN);
-        main.addItem(new TitleItem("Rayne Beridon"));
-        main.addItem(new FakeContactList(context, "Contact"));
-        main.addItem(new GithubList("Github", context, "rberidon"));
-        main.addItem(new LinkItem("Twitter", "@rberidon", "http://www.twitter.com/rberidon"));
-        main.addItem(new LinkItem("Facebook", "rberidon", "http://www.facebook.com/rberidon"));
-        main.addItem(new LinkItem("LinkedIn", "", "http://www.linkedin.com/profile/view?id=13719225"));
-        main.addItem(new LinkItem("Resume", "", "http://www.rberidon.com/RayneBeridonResume.pdf"));
-        lm.addList(main);
+        ArrayList<ListItem> main = new ArrayList<ListItem>();
+        main.add(new TitleItem("Rayne Beridon"));
+        main.add(new ContactList(context, "Contact"));
+        //main.add(new GithubList("Github", context, "rberidon"));
+        main.add(new LinkItem(context, "Twitter", "@rberidon", "http://www.twitter.com/rberidon"));
+        main.add(new LinkItem(context, "Facebook", "rberidon", "http://www.facebook.com/rberidon"));
+        main.add(new LinkItem(context, "LinkedIn", "", "http://www.linkedin.com/profile/view?id=13719225"));
+        main.add(new LinkItem(context, "Resume", "", "http://www.rberidon.com/RayneBeridonResume.pdf"));
+        lm.addList(MAIN, main);
 
-        List test = new List("test");
-        test.addItem(new TitleItem("Test list"));
-        test.addItem(new TitleItem("Test list 2"));
-        test.addItem(new TitleItem("Test list 3"));
-        lm.addList(test);
-
-        List l = new List("Contact");
-        l.addItem(new ImageItem(context, "gravatar", R.drawable.ring));
-        l.addItem(new TitleItem("Rayne Beridon"));
-        l.addItem(new SMSItem(context, "Phone", "(936) 647.0277"));
-        l.addItem(new EmailItem(context, "Email", "rberidon@gmail.com"));
-        l.addItem(new LinkItem("Website", "rberidon.com", "http://www.rberidon.com"));
-        l.addItem(new LatLongItem(context, "Address", "2801 Rio Grande, Apt 206, Austin, TX 78705", "30.29356","-97.74372"));
-        lm.addList(l);
+        ArrayList<ListItem> l = new ArrayList<ListItem>();
+        l.add(new ImageItem(context, "gravatar", R.drawable.ring));
+        l.add(new TitleItem("Rayne Beridon"));
+        l.add(new SMSItem(context, "Phone", "(936) 647.0277"));
+        l.add(new EmailItem(context, "Email", "rberidon@gmail.com"));
+        l.add(new LinkItem(context, "Website", "rberidon.com", "http://www.rberidon.com"));
+        l.add(new LatLongItem(context, "Address", "2801 Rio Grande, Apt 206, Austin, TX 78705", "30.29356", "-97.74372"));
+        lm.addList(CONTACT, l);
     }
 }

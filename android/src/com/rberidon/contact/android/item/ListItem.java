@@ -9,19 +9,23 @@ import android.widget.TextView;
 import com.rberidon.contact.android.Note;
 import com.rberidon.contact.android.R;
 import com.rberidon.contact.android.datasources.Constants;
+import com.rberidon.contact.android.views.DefaultActivity;
 
 public class ListItem {
     public String title;
     public String subtitle;
     public Intent i;
+    public Context context;
 
     public ListItem(String title) {
         this.title = title;
     }
 
-    public ListItem(String title, String subtitle) {
+    public ListItem(String title, String subtitle, Context context) {
         this(title);
         this.subtitle = subtitle;
+        this.context = context;
+        i = new Intent(context, DefaultActivity.class);
     }
 
     public boolean isBold() {

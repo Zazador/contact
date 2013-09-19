@@ -11,7 +11,7 @@ public class GithubRepoItem extends ListItem {
     public GithubRepo repo;
 
     public GithubRepoItem(Context context, GithubRepo repo) {
-        super(repo.name, repo.description);
+        super(repo.name, repo.description, context);
         this.self = this;
         this.repo = repo;
         this.context = context;

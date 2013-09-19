@@ -23,12 +23,6 @@ public class ImageItem extends ListItem {
             iv.setImageDrawable(image);
             iv.setContentDescription(title);
         }
-        iv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Note.d("W: " +v.getWidth() + ", H: " + v.getHeight());
-            }
-        });
     }
 
     @Override
