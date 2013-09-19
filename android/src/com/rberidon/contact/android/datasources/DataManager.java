@@ -8,7 +8,7 @@ public class DataManager {
     public static DataManager instance = null;
     public HashMap<String, Data> map;
     public DisplayMetrics metrics;
-    public Github github;
+    public GitHubDataSource gitHubDataSource;
 
     public DataManager() {
         map = new HashMap<String, Data>();

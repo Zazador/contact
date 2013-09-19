@@ -3,14 +3,14 @@ package com.rberidon.contact.android.item;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import com.rberidon.contact.android.datasources.GithubRepo;
+import com.rberidon.contact.android.datasources.GitHubDataSource;
 
-public class GithubRepoItem extends ListItem {
-    GithubRepoItem self;
+public class GitHubRepoItem extends ListItem {
+    GitHubRepoItem self;
     Context context;
-    public GithubRepo repo;
+    public GitHubDataSource.GitHubRepo repo;
 
-    public GithubRepoItem(Context context, GithubRepo repo) {
+    public GitHubRepoItem(Context context, GitHubDataSource.GitHubRepo repo) {
         super(repo.name, repo.description, context);
         this.self = this;
         this.repo = repo;
@@ -18,7 +18,7 @@ public class GithubRepoItem extends ListItem {
 
         i = new Intent(Intent.ACTION_VIEW);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        i.setData(Uri.parse("http://www.github.com/" + repo.full_name));
+        i.setData(Uri.parse("http://www.gitHubDataSource.com/" + repo.full_name));
     }
 }
 

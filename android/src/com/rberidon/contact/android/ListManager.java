@@ -3,6 +3,7 @@ package com.rberidon.contact.android;
 import android.content.Context;
 import com.rberidon.contact.android.item.*;
 import com.rberidon.contact.android.list.ContactList;
+import com.rberidon.contact.android.list.GithubList;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +16,7 @@ public class ListManager {
     // Constants
     public static final String MAIN = "main";
     public static final String CONTACT = "contact";
-    public static final String GITHUB = "Github";
+    public static final String GITHUB = "GitHub";
 
     public ListManager() {
         lists = new HashMap<String, ArrayList<ListItem>>();
@@ -47,7 +48,7 @@ public class ListManager {
         ArrayList<ListItem> main = new ArrayList<ListItem>();
         main.add(new TitleItem("Rayne Beridon"));
         main.add(new ContactList(context, "Contact"));
-        //main.add(new GithubList("Github", context, "rberidon"));
+        main.add(new GithubList("GitHub", context, "rberidon"));
         main.add(new LinkItem(context, "Twitter", "@rberidon", "http://www.twitter.com/rberidon"));
         main.add(new LinkItem(context, "Facebook", "rberidon", "http://www.facebook.com/rberidon"));
         main.add(new LinkItem(context, "LinkedIn", "", "http://www.linkedin.com/profile/view?id=13719225"));
