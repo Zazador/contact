@@ -1,7 +1,10 @@
 package com.rberidon.contact.android.datasources;
 
-public class Constants {
-    public static final String type_regular = "Arvo-BoldItalic_201.ttf";
-    public static final String type_bold = "Arvo-Italic_201.ttf";
+import android.graphics.Typeface;
 
+public class Constants {
+    public static final String font_reg = "Arvo-Italic_201.ttf";
+    public static final String font_bold = "Arvo-BoldItalic_201.ttf";
+    public static Typeface type_reg;
+    public static Typeface type_bold;
 }

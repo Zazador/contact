@@ -1,14 +1,15 @@
 package com.rberidon.contact.android.views;
 
 import android.app.ListActivity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.widget.ListView;
+import com.rberidon.contact.android.ListAdapter;
+import com.rberidon.contact.android.ListManager;
 import com.rberidon.contact.android.R;
 import com.rberidon.contact.android.datasources.Constants;
 import com.rberidon.contact.android.datasources.DataManager;
-import com.rberidon.contact.android.ListAdapter;
-import com.rberidon.contact.android.ListManager;
 
 public class DefaultView extends ListActivity {
     private DisplayMetrics metrics;
@@ -30,6 +31,14 @@ public class DefaultView extends ListActivity {
         ListAdapter la = getListAdapter();
         la.setItemOnClickListener((ListView) findViewById(android.R.id.list));
         setListAdapter(la);
+
+        if (Constants.type_bold == null) {
+            Constants.type_bold = Typeface.createFromAsset(getApplicationContext().getAssets(), Constants.font_bold);
+        }
+
+        if (Constants.type_reg == null) {
+            Constants.type_reg = Typeface.createFromAsset(getApplicationContext().getAssets(), Constants.font_reg);
+        }
     }
 
     public ListAdapter getListAdapter() {
@@ -38,7 +47,6 @@ public class DefaultView extends ListActivity {
     }
 
     public ListAdapter getListAdapter(String listName, int resource, int resource2) {
-        return new ListAdapter(getApplicationContext(), resource, resource2, (ListManager.getInstance().getList(listName)).items,
-                Constants.type_regular, Constants.type_bold);
+        return new ListAdapter(getApplicationContext(), (ListManager.getInstance().getList(listName)).items);
     }
 }

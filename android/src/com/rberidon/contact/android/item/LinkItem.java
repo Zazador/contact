@@ -2,7 +2,6 @@ package com.rberidon.contact.android.item;
 
 import android.content.Intent;
 import android.net.Uri;
-import com.rberidon.contact.android.Note;
 
 public class LinkItem extends ListItem {
     LinkItem self;

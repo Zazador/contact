@@ -37,7 +37,7 @@ public class List {
         items = new ArrayList<ListItem>();
     }
 
-    public ListAdapter getArrayAdapter(Context context, int resource, String boldFont, String font) {
-        return new ListAdapter(context, resource, items, boldFont, font);
+    public ListAdapter getArrayAdapter(Context context) {
+        return new ListAdapter(context, items);
     }
 }
