@@ -60,6 +60,7 @@ public class ListManager {
         lm.addList(test);
 
         List l = new List("Contact");
+        l.addItem(new ImageItem(context, "gravatar", R.drawable.ring));
         l.addItem(new TitleItem("Rayne Beridon"));
         l.addItem(new SMSItem(context, "Phone", "(936) 647.0277"));
         l.addItem(new EmailItem(context, "Email", "rberidon@gmail.com"));

@@ -32,14 +32,14 @@ public class ListItem {
         return (subtitle != null && !subtitle.isEmpty());
     }
 
-    public View getView(Context context) {
+    public final View getView(Context context) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate(getResource(), null);
+        View v = inflater.inflate(getLayoutResourceId(), null);
         setupView(v);
         return v;
     }
 
-    public void setupView(View v) {
+    protected void setupView(View v) {
         TextView t1 = (TextView) v.findViewById(android.R.id.text1);
         TextView t2 = (TextView) v.findViewById(android.R.id.text2);
         if (t1 != null) {
@@ -52,7 +52,7 @@ public class ListItem {
         }
     }
 
-    private int getResource() {
+    protected int getLayoutResourceId() {
         return (hasSubtitle() ? R.layout.item_twoline : R.layout.item);
     }
 
