@@ -21,14 +21,6 @@ public class GithubList extends ListItem {
         this.username = username;
         this.gh = new Github(username);
         this.i = new Intent(context, GithubView.class);
-
-        List l = new List("Github");
-
-        l.addItem(new LinkItem("Github", "@rberidon", "http://www.github.com/rberidon"));
-        for (GithubRepo r : gh.repos) {
-            l.addItem(new GithubRepoItem(context, r));
-        }
-        ListManager.getInstance().addList(l);
     }
 }
 
