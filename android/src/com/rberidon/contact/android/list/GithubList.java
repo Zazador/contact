@@ -33,7 +33,7 @@ public class GithubList extends ListItem {
         for (GithubRepo r : gh.repos) {
             l.addItem(new GithubRepoItem(context, r));
         }
-        ListManager.getInstance().addList("Github", l);
+        ListManager.getInstance().addList(l);
     }
 }
 
