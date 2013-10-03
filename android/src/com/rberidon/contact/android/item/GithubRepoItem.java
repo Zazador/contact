@@ -18,7 +18,7 @@ public class GitHubRepoItem extends ListItem {
 
         i = new Intent(Intent.ACTION_VIEW);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        i.setData(Uri.parse("http://www.gitHubDataSource.com/" + repo.full_name));
+        i.setData(Uri.parse(GitHubDataSource.WEB_URL + repo.full_name));
     }
 }
 

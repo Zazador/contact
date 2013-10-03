@@ -30,6 +30,7 @@ public class GitHubDataSource extends Data {
 
     // Constants
     private static final String API_URL = "https://api.github.com";
+    public static final String WEB_URL = "http://www.github.com/";
     public static final String USER_URL = "http://www.github.com/%s";
 
 
@@ -94,7 +95,7 @@ public class GitHubDataSource extends Data {
         return "@" + username;
     }
     public String getUserUrl() {
-        return String.format(USER_URL, username);
+        return String.format(WEB_URL, username);
     }
 
     private void createList(ArrayList<GitHubRepo> repos) {
